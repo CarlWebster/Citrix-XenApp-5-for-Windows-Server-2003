@@ -1,4 +1,4 @@
-#This File is in Unicode format.  Do not edit in an ASCII editor.
+﻿#This File is in Unicode format.  Do not edit in an ASCII editor.
 
 <#
 .SYNOPSIS
@@ -283,9 +283,9 @@
 	No objects are output from this script.  This script creates a Word or PDF document.
 .NOTES
 	NAME: XA52003_Inventory_V42.ps1
-	VERSION: 4.2
+	VERSION: 4.21
 	AUTHOR: Carl Webster (with a lot of help from Michael B. Smith and Jeff Wouters)
-	LASTEDIT: August 3, 2014
+	LASTEDIT: February 13, 2017
 #>
 
 
@@ -438,6 +438,10 @@ Param(
 #		Servers
 #		Zones
 #		All
+#Version 4.21 13-Feb-2017
+#	Fixed French wording for Table of Contents 2 (Thanks to David Rouquier)
+#
+
 
 Set-StrictMode -Version 2
 #force -verbose on
@@ -671,78 +675,20 @@ $hash = @{}
 #pt - Portuguese
 #sv - Swedish
 
-Switch ($PSCulture.Substring(0,3))
+Switch ($CultureCode)
 {
-	'ca-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Taula automática 2';
-			}
-		}
-
-	'da-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Automatisk tabel 2';
-			}
-		}
-
-	'de-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Automatische Tabelle 2';
-			}
-		}
-
-	'en-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents'  = 'Automatic Table 2';
-			}
-		}
-
-	'es-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Tabla automática 2';
-			}
-		}
-
-	'fi-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Automaattinen taulukko 2';
-			}
-		}
-
-	'fr-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Sommaire Automatique 2';
-			}
-		}
-
-	'nb-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Automatisk tabell 2';
-			}
-		}
-
-	'nl-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Automatische inhoudsopgave 2';
-			}
-		}
-
-	'pt-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Sumário Automático 2';
-			}
-		}
-
-	'sv-'	{
-			$hash.($($PSCulture)) = @{
-				'Word_TableOfContents' = 'Automatisk innehållsförteckning2';
-			}
-		}
-
-	Default	{$hash.('en-US') = @{
-				'Word_TableOfContents'  = 'Automatic Table 2';
-			}
-		}
+	'ca-'	{ 'Taula automática 2'; Break }
+	'da-'	{ 'Automatisk tabel 2'; Break }
+	'de-'	{ 'Automatische Tabelle 2'; Break }
+	'en-'	{ 'Automatic Table 2'; Break }
+	'es-'	{ 'Tabla automática 2'; Break }
+	'fi-'	{ 'Automaattinen taulukko 2'; Break }
+	'fr-'	{ 'Table automatique 2'; Break } #changed 13-feb-2017 david roquier and samuel legrand
+	'nb-'	{ 'Automatisk tabell 2'; Break }
+	'nl-'	{ 'Automatische inhoudsopgave 2'; Break }
+	'pt-'	{ 'Sumário Automático 2'; Break }
+	'sv-'	{ 'Automatisk innehållsförteckning2'; Break }
+	'zh-'	{ '自动目录 2'; Break }
 }
 
 $myHash = $hash.$PSCulture
