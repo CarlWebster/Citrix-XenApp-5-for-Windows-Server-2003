@@ -6365,9 +6365,3 @@ $Str = [string]::format("{0} days, {1} hours, {2} minutes, {3}.{4} seconds", `
         $runtime.Seconds,
         $runtime.Milliseconds)
 Write-Verbose "$(Get-Date): Elapsed time: $($Str)"
-			
-Write-Host "                                                                                    " -BackgroundColor Black -ForegroundColor White
-Write-Host "               This FREE script was brought to you by Conversant Group              " -BackgroundColor Black -ForegroundColor White
-Write-Host "We design, build, and manage infrastructure for a secure, dependable user experience" -BackgroundColor Black -ForegroundColor White
-Write-Host "                       Visit our website conversantgroup.com                        " -BackgroundColor Black -ForegroundColor White
-Write-Host "                                                                                    " -BackgroundColor Black -ForegroundColor White
